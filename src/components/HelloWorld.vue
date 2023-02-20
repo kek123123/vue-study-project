@@ -35,6 +35,26 @@ export default {
   name: 'HelloWorld',
   props: {
     msg: String
+  },
+  mounted() {
+    this.$axios.get("http://localhost:8080/")
+        .then(res => {
+          console.log("");
+          console.log("[MainComponent] : [axios] : [response]");
+          console.log("응답 데이터 : " + JSON.stringify(res.data));
+          console.log("");
+        })
+        .catch(error => {
+          console.log("");
+          console.log("[MainComponent] : [axios] : [error]");
+          console.log("에러 데이터 : " + error.data);
+          console.log("");
+        })
+        .finally(() => {
+          console.log("");
+          console.log("[MainComponent] : [axios] : [complete]");
+          console.log("");
+        })
   }
 }
 </script>

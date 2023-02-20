@@ -8,9 +8,13 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router/index'
+import axios from "axios";
 
 // 앱 생성 및 렌더링 시작점 세팅
 const app = createApp(App);
+
+// axios 전역화 및 뷰인스턴스 생성
+app.config.globalProperties.$axios = axios;
 
 // 라우터 설정
 app.use(router);
